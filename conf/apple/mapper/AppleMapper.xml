@@ -1,0 +1,25 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="apple.mapper.AppleMapper">
+    <resultMap id="appMap" type="apple.model.Apple">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="colour" property="colour"/>
+        <result column="weight" property="weight"/>
+    </resultMap>
+
+    <select id="all" resultMap="appMap">
+        SELECT * FROM apple ORDER BY id
+    </select>
+
+    <select id="getAppleById" parameterType="String" resultMap="appMap" >
+        SELECT * FROM apple WHERE id = #{id}
+    </select>
+
+    <insert id="add" parameterType="apple.model.Apple">
+        insert  into apple (id, name, colour, weight)
+        value (#{id}, #{name}, #{colour}, #{weight})
+    </insert>
+</mapper>

@@ -1,0 +1,7 @@
+# apple routes
+
+GET         /apples            apple.controller.AppleController.list
+
+GET         /apples/:id        apple.controller.AppleController.getById(id:String)
+
+POST        /apples            apple.controller.AppleController.add
